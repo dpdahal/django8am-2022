@@ -26,3 +26,9 @@ urlpatterns = [
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# update title and index
+
+admin.site.site_header = 'Django 8 AM Project'
+admin.site.index_title = 'Admin Section'
+admin.site.site_title = 'Admin adminsitration'
