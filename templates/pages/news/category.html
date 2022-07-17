@@ -1,0 +1,23 @@
+{% extends 'master/masater.html' %}
+{% block content %}
+
+    <div class="container" style="margin-top: 100px;">
+        <div class="row">
+            {% for news in newsData %}
+                <div class="card" style="width: 18rem;">
+                    {% if news.image %}
+                        <img src="{{ news.image.url }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                    {% endif %}
+                    <h5 class="card-title">{{ news.title }}</h5>
+                    <p class="card-text">
+                        {{ news.intro |safe }}
+                    </p>
+                    <a href="{% url 'news-details' news.slug %}" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

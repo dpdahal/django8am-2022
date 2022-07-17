@@ -1,9 +1,6 @@
 {% extends 'master/masater.html' %}
 {% block content %}
 
-
-
-
     <!-- Top News Start-->
     <div class="top-news">
         <div class="container">
@@ -83,7 +80,7 @@
                                         <img src="{{ news.image.url }}" height="300" width="100%" alt="{{ news.title }}">
                                         {% endif %}
                                         <div class="cn-title">
-                                            <a href="">{{ news.title }}</a>
+                                            <a href="{% url 'news-details' news.slug %}">{{ news.title }}</a>
                                         </div>
                                     </div>
                                 </div>
