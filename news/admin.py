@@ -23,3 +23,6 @@ class AdminCategory(admin.ModelAdmin):
 class AdminNews(admin.ModelAdmin):
     list_display = ['title', 'category', 'author', 'date', 'views']
     prepopulated_fields = {'slug': ('title',)}
+
+
+admin.site.register(Comments)

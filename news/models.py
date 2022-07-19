@@ -42,3 +42,17 @@ class News(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Comments(models.Model):
+    news = models.ForeignKey(News, on_delete=models.CASCADE)
+    name = models.CharField(max_length=255)
+    email = models.EmailField(max_length=255)
+    body = models.TextField()
+    parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True)
+
+    def __str__(self):
+        return self.name
+
+    def get_comments(self):
+        return Comments.objects.filter(parent=self)
